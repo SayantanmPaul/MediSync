@@ -71,58 +71,25 @@ if st.button('Show Results'):
     st.write(f'predicted disease: {predicted_disease}')
     st.write(f'description: {desc}')
 
-    if st.button('precaution'):
-        '''i = 1
-        for p_i in pre[0]:
+    # Display results in columns
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        st.text("Precaution")
+        for i, p_i in enumerate(pre[0], 1):
             st.write(f"{i}: {p_i}")
-            i+=1'''
-        if pre:
-            i = 1
-            for p_i in pre[0]:
-                st.write(f"{i}: {p_i}")
-                i += 1
-        else:
-            st.write("No precautions found for the selected disease.")
 
+    with col2:
+        st.text("Medication")
+        for i, m_i in enumerate(med, 1):
+            st.write(f"{i}: {m_i}")
 
-    if st.button('Medications'):
-        '''i = 1
-        for m_i in med:
-        print(i, ": ",m_i)
-        i+=1'''
-        if pre:
-            i = 1
-            for m_i in med[0]:
-                st.write(f"{i}: {m_i}")
-                i += 1
-        else:
-            st.write("No medications found for the selected disease.")
+    with col3:
+        st.text("Workout")
+        for i, w_i in enumerate(wrkout, 1):
+            st.write(f"{i}: {w_i}")
 
-
-
-    if st.button('Workout'):
-        '''i = 1
-        for w_i in wrkout:
-        print(i, ": ",w_i)
-        i+=1'''
-        if pre:
-            i = 1
-            for w_i in wrkout[0]:
-                st.write(f"{i}: {w_i}")
-                i += 1
-        else:
-            st.write("No workouts found for the selected disease.")
-
-
-    if st.button('Diet'):
-        '''i = 1
-    for d_i in die:
-        print(i, ": ",d_i)
-        i+=1'''
-        if pre:
-            i = 1
-            for d_i in die[0]:
-                st.write(f"{i}: {d_i}")
-                i += 1
-        else:
-            st.write("No diet found for the selected disease.")
+    with col4:
+        st.text("Diet")
+        for i, d_i in enumerate(die, 1):
+            st.write(f"{i}: {d_i}")
