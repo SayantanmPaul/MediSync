@@ -258,7 +258,7 @@ def page2():
         # Multiselect for selecting multiple symptoms
         selected_symptoms = st.multiselect('Select Symptoms:', symptom_options)
         # Display the selected symptoms
-        st.write(f'Selected Symptoms: {selected_symptoms}')
+        #st.write(f'Selected Symptoms: {selected_symptoms}')
 
         # helper function
         def helper(dis):
