@@ -1,9 +1,12 @@
 #import lottie
 import streamlit as st
+import firebase_admin
 import json
 import requests
 from streamlit_lottie import st_lottie
 from firebase_admin import credentials
+from firebase_admin import firestore
+from firebase_admin import auth
 import pandas as pd
 import numpy as np
 import joblib
@@ -16,6 +19,7 @@ st.set_page_config(
 
 # Initialize Firebase Admin SDK
 cred = credentials.Certificate("drug-prescription-17cba-d6b39273782c.json")
+#firebase_admin.initialize_app(cred)
 
 #st.sidebar.success("Select a page above")
 
@@ -90,7 +94,7 @@ def page2():
         st.session_state['signout'] = False
 
     # Firebase REST API endpoints
-    api_key = "AIzaSyApr-etDzcGcsVcmaw7R7rPxx3A09as7uw"
+    api_key = "AIzaSyDw0szPidgs3RmwOLq2136V34Hx36OZchM"
     sign_up_url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp"
     sign_in_url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword"
     reset_password_url = "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode"
@@ -185,8 +189,11 @@ def page2():
             st.button('Login', on_click=handle_login)
             handle_reset_password()
 
+
+
+    #st.title("Welcome")
     if st.session_state.signout:
-        st.text(f"Welcome {st.session_state.username}, here's your virtual medical assistant")
+        st.header(f"Welcome {st.session_state.username}, here's your virtual medical assistant")
 
 
 
