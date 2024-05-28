@@ -19,7 +19,7 @@ st.set_page_config(
 
 # Initialize Firebase Admin SDK
 cred = credentials.Certificate("drug-prescription-17cba-d6b39273782c.json")
-#firebase_admin.initialize_app(cred)
+firebase_admin.initialize_app(cred)
 
 #st.sidebar.success("Select a page above")
 
