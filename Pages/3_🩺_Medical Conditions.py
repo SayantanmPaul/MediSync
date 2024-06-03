@@ -4,6 +4,14 @@ from pandas import DataFrame
 import json
 from streamlit_lottie import st_lottie
 
+
+st.set_page_config(
+    page_title="MediSync",
+    page_icon="🩺"
+)
+
+
+
 st.title("Pinnacle of Health Challenges")
 # Header
 st.header("Medical Conditions Faced by Many")

@@ -1,6 +1,13 @@
 import streamlit as st
 from PIL import Image
 
+
+st.set_page_config(
+    page_title="MediSync",
+    page_icon="🩺"
+)
+
+
 st.title("Overview")
 st.header("Insights into Our Endeavor")
 

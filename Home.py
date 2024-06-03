@@ -81,7 +81,9 @@ def page1():
 
 
 def page2():
-    st.title('Account')
+    st.markdown(
+        f'<h3 style="display:inline; font-size: 48px; color: #3B2929;">MediSync:</h3>' ,unsafe_allow_html=True)
+    #st.title('MediSync')
 
     # Initialize session state variables
     if 'username' not in st.session_state:
@@ -163,7 +165,7 @@ def page2():
 
     # Reset password handler
     def handle_reset_password():
-        email = st.text_input('Email')
+        email = st.text_input('Forgot Password (put your Email below)')
         if st.button('Send Reset Link'):
             success, message = reset_password(email)
             if success:
@@ -193,7 +195,10 @@ def page2():
 
     #st.title("Welcome")
     if st.session_state.signout:
-        st.header(f"Welcome {st.session_state.username}, here's your virtual medical assistant")
+        st.header(f"Welcome {st.session_state.username}")
+        st.markdown(
+            f'<h3 style="display:inline; font-size: 28px; color: #987070;">Here is your virtual medical assistant</h3><br><br>', unsafe_allow_html=True)
+        #st.subheader(f"Here's your virtual medical assistant")
 
 
 
@@ -300,29 +305,45 @@ def page2():
         desc, pre, med, die, wrkout = helper(predicted_disease)
 
         if st.button('Show Results'):
-            st.write(f'predicted disease: {predicted_disease}')
-            st.write(f'description: {desc}')
+            st.markdown(
+                f'<h5 style="display:inline; font-size: 38px; color: #3B2929;">Predicted disease:</h5> <span style="font-size: 24px;">{predicted_disease}</span><br><br>',unsafe_allow_html=True)
+            #st.write(f'predicted disease: {predicted_disease}')
+
+            st.markdown(
+                f'<h5 style="display:inline; font-size: 38px; color: #3B2929;">Description:</h5> <span style="font-size: 24px;">{desc}</span><br><br>',unsafe_allow_html=True)
+            #st.write(f'description: {desc}')
 
             # Display results in columns
             col1, col2, col3, col4 = st.columns(4)
 
             with col1:
-                st.text("Precaution")
+                st.markdown(
+                    f'<h5 style="display:inline; font-size: 28px; color: #3B2929;">Precaution:</h5>',unsafe_allow_html=True)
+                #st.text("Precaution")
                 for i, p_i in enumerate(pre[0], 1):
                     st.write(f"{i}: {p_i}")
 
             with col2:
-                st.text("Medication")
+                st.markdown(
+                    f'<h5 style="display:inline; font-size: 28px; color: #3B2929;">Medication:</h5>',
+                    unsafe_allow_html=True)
+                #st.text("Medication")
                 for i, m_i in enumerate(med, 1):
                     st.write(f"{i}: {m_i}")
 
             with col3:
-                st.text("Workout")
+                st.markdown(
+                    f'<h5 style="display:inline; font-size: 28px; color: #3B2929;">Workout:</h5><br><br>',
+                    unsafe_allow_html=True)
+                #st.text("Workout")
                 for i, w_i in enumerate(wrkout, 1):
                     st.write(f"{i}: {w_i}")
 
             with col4:
-                st.text("Diet")
+                st.markdown(
+                    f'<h5 style="display:inline; font-size: 28px; color: #3B2929;">Diet:</h5><br><br>',
+                    unsafe_allow_html=True)
+                #st.text("Diet")
                 for i, d_i in enumerate(die, 1):
                     st.write(f"{i}: {d_i}")
 
